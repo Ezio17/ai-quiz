@@ -1,0 +1,60 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "airbnb-base",
+    "plugin:vue/vue3-recommended",
+    "plugin:nuxt/recommended",
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "plugins": ["prettier", "nuxt", "@typescript-eslint"],
+  "globals": {
+    "defineNuxtConfig": "readonly"
+  },
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser",
+    "ecmaVersion": 2022,
+    "sourceType": "module",
+    "extraFileExtensions": [".vue"]
+  },
+  "rules": {
+    "vue/multi-word-component-names": "off",
+    "import/prefer-default-export": "off",
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
+    "no-undef": "off",
+    "prettier/prettier": "error",
+    "no-unused-vars": "error",
+    "vue/attributes-order": "error",
+    "import/no-extraneous-dependencies": "off",
+    "no-console": [
+      "error",
+      {
+        "allow": ["warn", "error"]
+      }
+    ],
+    "object-curly-newline": [
+      "error",
+      {
+        "ObjectExpression": {
+          "consistent": true,
+          "minProperties": 4
+        }
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["*.d.ts"],
+      "rules": {
+        "no-unused-vars": "off"
+      }
+    }
+  ]
+}
