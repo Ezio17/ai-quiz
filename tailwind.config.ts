@@ -1,4 +1,4 @@
 export default {
-  content: ['./src/**/*.vue'],
+  content: ['./app/**/*.vue'],
   plugins: [],
 };
