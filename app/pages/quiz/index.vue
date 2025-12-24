@@ -45,8 +45,8 @@ const route = useRoute();
 const router = useRouter();
 const topic = ref((route.query.topic as string) || '');
 
-const userAnswers = reactive<Record<number, string>>({});
 const isChecked = ref(false);
+let userAnswers = reactive<Record<number, string>>({});
 
 const { questions, refresh, pending } = await useQuiz(topic.value);
 
@@ -72,6 +72,8 @@ function checkAnswers() {
 function newQuestions() {
   refresh();
 
+  userAnswers = {};
+
   isChecked.value = false;
 }
 
@@ -79,33 +81,3 @@ function changeTopic() {
   router.replace('/');
 }
 </script>
-
-<style scoped>
-@keyframes pulse-fire {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.3);
-  }
-}
-.animate-pulse-fire {
-  display: inline-block;
-  animation: pulse-fire 0.8s infinite;
-}
-
-@keyframes pulse-text {
-  0%,
-  100% {
-    opacity: 0.5;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-.animate-pulse-text {
-  display: inline-block;
-  animation: pulse-text 1.2s infinite;
-}
-</style>
